@@ -1,3 +1,22 @@
+RECON TIPS
+
+ 1. If you got creds try them an all boxes.
+ 2. Do local enum every time you get creds as it can show additional path/files.
+ 3. During external(blackbox) enum try to find hidden files/directories. Try different extentions based on web technology.
+ 4. During external(blackbox) enum try to find hidden subdomains as well.
+ 5. On different services try default creds. Example: FTP anonymous/anonymous or guest/guest. For MSSql sa/blank password.
+------------------------------
+
+RECON Tools 
+
+# https://github.com/Tib3rius/AutoRecon
+autorecon
+
+# enum4linux-ng  https://github.com/cddmp/enum4linux-ng
+enum4linux-ng.py ip
+
+-----------------------------
+
 NMAP
 
 # Alive hosts
