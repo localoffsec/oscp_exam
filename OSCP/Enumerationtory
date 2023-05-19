@@ -75,6 +75,10 @@ rpcclient> queryuser john
  - querygroup 0x234
  - querygroupmem 0x323
 
+
+polenum -u '' -p '' x.x.x.x 
+
+
 # scan for vulnerabilities with nmap
 nmap --script "vuln" <targetip> -p139,445
 
@@ -82,7 +86,14 @@ Shares check:
 smbmap -H 172.21.0.185
 smbmap -H ip -u anonymous -R
 smbmap -d domain.local -u someuser -p somepassword -H 172.21.0.185 - try to put your password in '' as the password has ! and can break the command parser
+
 ------------------------
+
+HTTP
+
+nmap --script http-methods --script-arg http-methods.url-path=/lala_folder/ target_ip
+
+-------------------------
 
 SMTP
 
@@ -117,6 +128,8 @@ nmap --script nfs-showmount.nse <targetip>
 mkdir /tmp/nfs
 /sbin/mount.nfs <targetip>:/home/box /tmp/nfs
 
+------------------------------------------------------
+
 LDAP + Kerbrute
 
 kerbrute userenum -d domain.local --dc ip users.txt - 
@@ -128,8 +141,15 @@ ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" > ldap.txt
 ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' sAMAccountName
 ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' "sAMAccountName" | grep sAMAccountName
 
+---------------------------------------------------------------------------------------------------------------
+
+Directory Bruteforcing
 
 
+gobuster dir -u http://ip -w /path_to_dictionary -x txt,bak,php -t 50 -r --noerror -f
+dirsearch.py -u http://ip -w /path_to_dictionary -e txt,bak,php -t 50 -r -R 1 -x 400,401
+nc -nv ip port > output.txt
+python3 -m http.server 9000
 
 
 
