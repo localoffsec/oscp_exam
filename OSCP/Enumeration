@@ -59,9 +59,10 @@ enum4linux -a 192.168.1.120
 nmblookup -A 192.168.1.102
 smbclient -L <server_name> -I 192.168.1.105
 
-# rpcclient - Connect with a null-session (only works for older windows servers)
+# rpcclient - Connect with a null-session (only works for older windows servers) if RPC 135/tcp is open then:
 rpcclient -U james 10.10.10.52
 rpcclient -U "" 192.168.1.105
+rpcclient -U '' -N 172.21.0.185
 (press enter if asks for a password)
 rpcclient $> srvinfo
 rpcclient $> enumdomusers
@@ -70,6 +71,9 @@ rpcclient $> lookupnames administrators
 rpcclient> querydominfo
 rpcclient> enumdomusers
 rpcclient> queryuser john
+ - query user 0x451
+ - querygroup 0x234
+ - querygroupmem 0x323
 
 # scan for vulnerabilities with nmap
 nmap --script "vuln" <targetip> -p139,445
@@ -113,7 +117,16 @@ nmap --script nfs-showmount.nse <targetip>
 mkdir /tmp/nfs
 /sbin/mount.nfs <targetip>:/home/box /tmp/nfs
 
+LDAP + Kerbrute
 
+kerbrute userenum -d domain.local --dc ip users.txt - 
+ 
+ldapsearch -H ldap://x.x.x.x -x -s base namingcontexts 
+ldapsearch -h x.x.x.x -x
+ldapsearch -h x.x.x.x -x -s base namingcontexts - the output of this compand will be "DC=domain,DC=local"
+ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" > ldap.txt
+ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' sAMAccountName
+ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' "sAMAccountName" | grep sAMAccountName
 
 
 
