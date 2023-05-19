@@ -34,6 +34,10 @@ works the same as a command line FTP client, may browse files without even havin
 # Share List:
 smbclient --list <targetip>
 smbclient -L <targetip>
+smbclient -N //172.21.0.185
+smbclient -U '' -N -L //172.21.0.185 - you can ommite //    you need // if you mount it
+smbclient //172.21.0.185/sharename -c 'recurse;ls'
+smbclient //172.21.0.185/sharename
 
 # Check SMB vulnerabilities:
 nmap --script=smb-check-vulns.nse <targetip> -p445
@@ -42,7 +46,7 @@ nmap --script=smb-check-vulns.nse <targetip> -p445
 nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 
 # Connect using Username
-root@kali:~# smbclient -L <targetip> -U username -p 445
+rsmbclient -L <targetip> -U username -p 445
 
 # Connect to Shares
 smbclient \\\\<targetip>\\ShareName
@@ -70,6 +74,10 @@ rpcclient> queryuser john
 # scan for vulnerabilities with nmap
 nmap --script "vuln" <targetip> -p139,445
 
+Shares check:
+smbmap -H 172.21.0.185
+smbmap -H ip -u anonymous -R
+smbmap -d domain.local -u someuser -p somepassword -H 172.21.0.185 - try to put your password in '' as the password has ! and can break the command parser
 ------------------------
 
 SMTP
