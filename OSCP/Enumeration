@@ -17,6 +17,11 @@ nmap -sT -sV -A -O -v -p 1–65535 <targetip>
 nmap -sV -sC -v -oA output <targetip>
 nmap -p- -v <targetip>
 
+nmap -p- -T5 ip -v
+nmap -p22,80,443 -A ip -v
+nmap -v -sC -sV -A -oN output.txt 172.21.0.185
+nmap -sV --script "ldap* and not brute"  ip
+nmap --script krb-enum-users 
 
 ------------------------
 
