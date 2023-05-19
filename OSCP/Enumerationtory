@@ -154,13 +154,7 @@ ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' "sAMAcco
 
 ---------------------------------------------------------------------------------------------------------------
 
-Directory Bruteforcing
 
-
-gobuster dir -u http://ip -w /path_to_dictionary -x txt,bak,php -t 50 -r --noerror -f
-dirsearch.py -u http://ip -w /path_to_dictionary -e txt,bak,php -t 50 -r -R 1 -x 400,401
-nc -nv ip port > output.txt
-python3 -m http.server 9000
 
 
 
