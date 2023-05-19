@@ -2,7 +2,7 @@ Windows
 
 Enumeration
 
-# PowerSploit        https://github.com/PowerShellMafia/PowerSploit/tree/master
+# PowerView/PowerSploit        https://github.com/PowerShellMafia/PowerSploit/tree/master
 powershell -ExecutionPolicy Bypass -Command ". .\PowerUp.ps1;Invoke-AllChecks"
 
 # basics
