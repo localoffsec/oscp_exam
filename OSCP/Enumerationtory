@@ -95,6 +95,15 @@ nmap --script http-methods --script-arg http-methods.url-path=/lala_folder/ targ
 
 -------------------------
 
+DNS
+
+In case we have ADS port 53 we try:
+dnsrecon -d ip_addr -t axfr
+or
+use auziliary/gather/enum_dns
+
+-------------------------
+
 SMTP
 
 # telnet or netcat connection
