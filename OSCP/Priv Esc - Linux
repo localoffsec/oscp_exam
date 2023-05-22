@@ -7,6 +7,9 @@ http://pentestmonkey.net/tools/audit/unix-privesc-check
 https://github.com/The-Z-Labs/linux-exploit-suggester
 
 
+# PSPY -  Monitor linux processes without root permissions
+# https://github.com/DominicBreuker/pspy.git
+
 # Kernel and OS
 uname -a
 uname -mrs
