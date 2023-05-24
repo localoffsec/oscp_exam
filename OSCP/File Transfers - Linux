@@ -1,3 +1,7 @@
+#PSCP tools from putty-tools package
+pscp user@target_ip:/path_to_file /path_where_to_save
+
+
 Python SimpleHTTPServer
 
 #on Attacker
