@@ -1,3 +1,4 @@
+#With this tool we copy a file from windows to linux
 #PSCP tools from putty-tools package
 pscp user@target_ip:/path_to_file /path_where_to_save
 
