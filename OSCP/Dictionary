@@ -6,8 +6,15 @@ https://wordlists.assetnote.io/
 
 https://github.com/danielmiessler/SecLists/tree/master/Passwords
 
+
 cewl -d 3 -m 3 -v -w custom-wordlist.txt https://bets-cleaner-qa.belbet.by/login
 
+
+#if cewl does not work then try this tool:
+
+curl http://example.com > example.txt
+
+html2dic example.txt
 
 
 
