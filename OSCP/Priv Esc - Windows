@@ -17,6 +17,8 @@ systeminfo
 hostname
 echo %username%
 
+dir /a /o /q
+
 # users
 net users
 net user <username>
