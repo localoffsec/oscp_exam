@@ -12,6 +12,9 @@ wmic qfe
 # PowerView/PowerSploit        https://github.com/PowerShellMafia/PowerSploit/tree/master
 powershell -ExecutionPolicy Bypass -Command ". .\PowerUp.ps1;Invoke-AllChecks"
 powershell -ep bypass PowerUp.ps1
+powershell -ep bypass
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
 
 # basics
 systeminfo
