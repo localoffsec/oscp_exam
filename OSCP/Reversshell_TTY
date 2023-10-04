@@ -74,6 +74,10 @@ Interactive TTY Shell
 python -c 'import pty; pty.spawn("/bin/sh")'
 stty raw -echo ; fg ; reset - helps to stay in terminal when we hit ctrl+c
 rlwrap nc -vnlp 9001 -- this tool is to use up/down/ arrows in the shell
+export TERM=xterm-256color
+alias ll='ls -lsaht --color=auto'
+stty columns 200 rows 200
+
 
 
 echo 'os.system('/bin/bash')'
