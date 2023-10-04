@@ -21,8 +21,20 @@ https://github.com/The-Z-Labs/linux-exploit-suggester
 uname -a
 uname -mrs
 cat /etc/issue
+cat /etc/*-release
 cat /etc/lsb-release      # Debian based
 cat /etc/redhat-release   # Redhat based
+
+# To get env variables
+env
+
+# Where can I live on this machine? Where can I read, write and execute files?
+/var/tmp/
+/tmp/
+/dev/shm/
+
+Any exotic file system mounts/extended attributes?
+cat /etc/fstab
 
 # running services and find services run boy root
 ps aux
