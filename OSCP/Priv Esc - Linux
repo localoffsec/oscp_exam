@@ -47,6 +47,10 @@ ls -alh /sbin/
 
 # scheduled tasks
 crontab -l
+crontab –u root –l
+# Look for unusual system-wide cron jobs:
+cat /etc/crontab
+ls /etc/cron.*
 
 # port forwarding
 ssh -L 8080:127.0.0.1:80 root@192.168.1.7    # Local Port
