@@ -36,3 +36,59 @@ nmap --script krb-enum-users
 # SMB nmap Scripting Engine Vulnerability scan
 nmap -p 139,445 10.11.1.115 -vv --script=smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-ms17-010.nse
 ------------------------
+
+# Check SMB vulnerabilities:
+nmap --script=smb-check-vulns.nse <targetip> -p445
+
+# basic nmap scripts to enumerate shares and OS discovery
+nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
+
+------------------------
+
+HTTP
+
+nmap --script http-methods --script-arg http-methods.url-path=/lala_folder/ target_ip
+
+-------------------------
+
+DNS
+
+In case we have ADS port 53 we try:
+dnsrecon -d ip_addr -t axfr
+or
+use auziliary/gather/enum_dns
+
+-------------------------
+
+SMTP
+
+# telnet or netcat connection
+nc <targetip> 25
+VRFY root
+# Check for commands
+nmap -script smtp-commands.nse <targetip>
+
+------------------------
+
+Port 111 - RPC
+
+Rpcbind can help us look for NFS-shares. So look out for nfs. Obtain list of services running with RPC:
+
+rpcbind -p <targetip>
+rpcinfo –p x.x.x.x
+
+# using nmap, see which port NFS is listening
+locate *rpc*.nse
+nmap --script rpcinfo.nse <targetip> -p 111
+
+-------------------------
+
+NFS
+
+# to find the public share
+locate *nfs*.nse
+nmap --script nfs-showmount.nse <targetip>
+
+# mount the share to a folder under /tmp
+mkdir /tmp/nfs
+/sbin/mount.nfs <targetip>:/home/box /tmp/nfs
