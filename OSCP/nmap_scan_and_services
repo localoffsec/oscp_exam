@@ -48,7 +48,16 @@ nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 
 MySql
 
-
+nmap -sV --script=mysql-databases 192.168.195.130
+nmap -sV --script=mysql-databases --script-args mysqluser=root,mysqlpass=toor 192.168.195.130
+nmap -sV --script=mysql-users 192.168.195.130
+nmap --script mysql-empty-password 192.168.195.130
+nmap -p3306 --script mysql-variables localhost
+nmap --script=mysql-brute localhost
+nmap --script=mysql-info localhost
+nmap --script=mysql-dump-hashes localhost
+nmap --script=mysql-enum localhost
+nmap --script=mysql-vuln-cve2012-2122 localhost
 ------------------------
 
 HTTP
