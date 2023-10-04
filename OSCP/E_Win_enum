@@ -16,46 +16,6 @@ autorecon
 enum4linux-ng.py ip
 
 -----------------------------
-
-NMAP
-
-# Alive hosts
-nmap -sn 10.0.0.0/24	
-
-# scan the 1024 most common ports, run OS detection, run default nmap scripts
-nmap -A -oA nmap <targetip>	
-
-# Scan more deeply, scan all 65535 ports on $targetip with a full connect scan
-nmap -v -sT <targetip> -p- 
-
-# more options
-nmap -sV -sC -v -A <targetip> -p- 
-nmap -sT -sV -A -O -v -p 1–65535 <targetip> 
-
-# my preference
-nmap -sV -sC -v -oA output <targetip>
-nmap -p- -v <targetip>
-
-## Nmap script to scan for vulnerable SMB servers - WARNING: unsafe=1 may cause knockover
-```
-nmap -v -p 445 --script=smb-check-vulns --script-args=unsafe=1 192.168.1.X	
-```
-## Nmap script to scan for vulnerable SMB servers – WARNING: unsafe=1 may cause knockover
-```
-nmap –script smb-check-vulns.nse –script-args=unsafe=1 -p445 [host]      
-
-nmap -sU -sS --script=smb-enum-users -p U:137,T:139 192.168.11.200-254
-nmap -T4 -v -oA shares --script smb-enum-shares --script-args smbuser=username,smbpass=password -p445 192.168.1.0/24
-nmap -p- -T5 ip -v
-nmap -p22,80,443 -A ip -v
-nmap -v -sC -sV -A -oN output.txt 172.21.0.185
-nmap -sV --script "ldap* and not brute"  ip
-nmap --script krb-enum-users 
-
-# SMB nmap Scripting Engine Vulnerability scan
-nmap -p 139,445 10.11.1.115 -vv --script=smb-vuln-cve2009-3103.nse,smb-vuln-ms06-025.nse,smb-vuln-ms07-029.nse,smb-vuln-ms08-067.nse,smb-vuln-ms10-054.nse,smb-vuln-ms10-061.nse,smb-vuln-ms17-010.nse
-------------------------
-
 SMB
 
 ## Enumerate users from SMB
@@ -78,11 +38,7 @@ smbclient -U '' -N -L //172.21.0.185 - you can ommite //    you need // if you m
 smbclient //172.21.0.185/sharename -c 'recurse;ls'
 smbclient //172.21.0.185/sharename
 
-# Check SMB vulnerabilities:
-nmap --script=smb-check-vulns.nse <targetip> -p445
 
-# basic nmap scripts to enumerate shares and OS discovery
-nmap -p 139,445 192.168.1.1/24 --script smb-enum-shares.nse smb-os-discovery.nse
 
 # Connect using Username
 rsmbclient -L <targetip> -U username -p 445
@@ -135,55 +91,6 @@ crackmapexec smb x.x.x.x -u users.txt -p somepassword -   this command wil take 
 crackmapexec smb x.x.x.x/24 -u 'userzz' -H HASHlaskhdsalhdlsahdlsadh134312!hash --local-auth
 crackmapexec smb ip -u 'guest' -p '' -M spider_plus after to parse the json type cat /tmp/cme_spuder_plus/ip.json |jq '. |map_values(keys)'
 
-------------------------
-
-HTTP
-
-nmap --script http-methods --script-arg http-methods.url-path=/lala_folder/ target_ip
-
--------------------------
-
-DNS
-
-In case we have ADS port 53 we try:
-dnsrecon -d ip_addr -t axfr
-or
-use auziliary/gather/enum_dns
-
--------------------------
-
-SMTP
-
-# telnet or netcat connection
-nc <targetip> 25
-VRFY root
-# Check for commands
-nmap -script smtp-commands.nse <targetip>
-
-------------------------
-
-Port 111 - RPC
-
-Rpcbind can help us look for NFS-shares. So look out for nfs. Obtain list of services running with RPC:
-
-rpcbind -p <targetip>
-rpcinfo –p x.x.x.x
-
-# using nmap, see which port NFS is listening
-locate *rpc*.nse
-nmap --script rpcinfo.nse <targetip> -p 111
-
--------------------------
-
-NFS
-
-# to find the public share
-locate *nfs*.nse
-nmap --script nfs-showmount.nse <targetip>
-
-# mount the share to a folder under /tmp
-mkdir /tmp/nfs
-/sbin/mount.nfs <targetip>:/home/box /tmp/nfs
 
 ------------------------------------------------------
 
@@ -199,9 +106,3 @@ ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' sAMAccou
 ldapsearch -h x.x.x.x -x -b "DC=domain,DC=local" '(objectClass=Person)' "sAMAccountName" | grep sAMAccountName
 
 ---------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
