@@ -25,6 +25,9 @@ cat /etc/*-release
 cat /etc/lsb-release      # Debian based
 cat /etc/redhat-release   # Redhat based
 
+# Are any users a member of exotic groups?
+groups <user>
+
 # To get env variables
 env
 
@@ -32,6 +35,10 @@ env
 /var/tmp/
 /tmp/
 /dev/shm/
+
+Web Configs containing credentials?
+cd /var/www/html/
+ls -lsaht
 
 Any exotic file system mounts/extended attributes?
 cat /etc/fstab
@@ -130,6 +137,12 @@ find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the group,
 find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.
 find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
 find / -type f -user yash                           # find files for owner yash
+find . -perm /2000 
+find / -perm -4000 -o -perm -2000
+find / -perm -u=s -type f 2>/dev/null
+find / -perm /6000
+find / -perm /6001   
+
 
 # GTFO Bins:
 GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.
@@ -175,13 +188,7 @@ grep -C 5 "password" [filename]
 find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"
 ```
 
-## find all files with SUID & SGID set
-```
-find . -perm /2000 
-find / -perm -4000 -o -perm -2000
-find / -perm -u=s -type f 2>/dev/null
-find / -perm /6000
-find / -perm /6001   
+
 ```
 
 ## services which are running as root
@@ -324,8 +331,7 @@ chmod 1757 /opt/dump/
 
 Here in 1757, 1 indicates Sticky Bit set, 7 for full permissions for owner, 5 for read and execute permissions for group, and full permissions for others.
 
-## Find Files with SGID set:
-find / -perm /1000
+
 
 
 
