@@ -10,6 +10,9 @@ Local Enumeration
 2.2 run systeminfo on hacked pc and save this info into a file named systeminfo_you_collected.txt
 2.3 python windows-exploit-suggester.py --database xxxx-xx-xx-mssb.xlsx --systeminfo systeminfo_you_collected.txt  #in the console the script will output the exploits
 
+https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+https://github.com/bitsadmin/wesng
+
 3. wmic qfe
 
 ----------------------------------------------
