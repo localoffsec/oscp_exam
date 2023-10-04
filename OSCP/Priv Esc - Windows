@@ -13,8 +13,14 @@ Local Enumeration
 https://github.com/AonCyberLabs/Windows-Exploit-Suggester
 https://github.com/bitsadmin/wesng
 
-3. wmic qfe
+other version
 
+https://github.com/GDSSecurity/Windows-Exploit-Suggester/blob/master/windows-exploit-suggester.py
+python windows-exploit-suggester.py -d 2017-05-27-mssb.xls -i systeminfo.txt 
+
+
+3. wmic qfe
+   wmic qfe get Caption,Description,HotFixID,InstalledOn | findstr /C:"KB.." /C:"KB.."
 ----------------------------------------------
 
 # PowerView/PowerSploit        https://github.com/PowerShellMafia/PowerSploit/tree/master
@@ -23,6 +29,19 @@ powershell -ep bypass PowerUp.ps1
 powershell -ep bypass
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
+--------------------------------------------------
+
+# PrivescCheck  https://github.com/itm4n/PrivescCheck
+
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended"
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_%COMPUTERNAME%"
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_%COMPUTERNAME% -Format TXT,CSV,HTML,XML"
+--------------------------------------------------
+
+
+
+--------------------------------------------------
 
 # basics
 systeminfo
@@ -49,13 +68,6 @@ netstat -ano  # active network connections
 netsh firewall show state
 netsh firewall show config
 netsh advfirewall firewall show rule all
-
-# systeminfo output save in a file, check for vulnerabilities
-https://github.com/GDSSecurity/Windows-Exploit-Suggester/blob/master/windows-exploit-suggester.py
-python windows-exploit-suggester.py -d 2017-05-27-mssb.xls -i systeminfo.txt 
-
-# Search patches for given patch
-wmic qfe get Caption,Description,HotFixID,InstalledOn | findstr /C:"KB.." /C:"KB.."
 
 --------------------------------------
 Kernel
