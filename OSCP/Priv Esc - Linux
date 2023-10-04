@@ -64,11 +64,18 @@ proxychains ifconfig
 cat /etc/passwd
 cat /etc/group
 cat /etc/shadow
-ls -alh /var/mail/
 
-# check home dirs
+
+# check home dirs Quick look in:
 ls -ahlR /root/
 ls -ahlR /home
+ls -lsaht /opt/
+ls -lsaht /tmp/
+ls -lsaht /var/tmp/
+ls -lsaht /dev/shm/
+ls -lsaR /home/
+ls -lsaht /var/lib/
+ls -lsaht /var/db/
 
 # private key search
 cat ~/.ssh/authorized_keys
@@ -87,6 +94,9 @@ cat /etc/ssh/ssh_host_rsa_key
 cat /etc/ssh/ssh_host_key.pub
 cat /etc/ssh/ssh_host_key
 
+
+# Bob is a user on this machine. What is every single file he has ever created?
+find / -user miguel 2>/dev/null
 
 # Sticky Bits & SUID & GUID
 
