@@ -1,3 +1,6 @@
+xfreerdp h:/1000 /drive:/home/kali/tools
+
+
 Interactive TTY Shell
 # python
 python -c 'import pty; pty.spawn("/bin/sh")'
