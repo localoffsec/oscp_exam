@@ -1,3 +1,10 @@
+#  Weak permissions with powershell
+
+(Get-Acl -Path C:\users\kukuv\Pictures\).Access
+
+
+
+
 Windows
 ----------------------------------------
 Local Enumeration
