@@ -14,12 +14,12 @@ HTTP Enumeration
 ----------------------------------------------
 # Gobuster
 gobuster -u <targetip> -w /usr/share/seclists/Discovery/Web_Content/common.txt -s '200,204,301,302,307,403,500' -e
-gobuster dir -u http://ip -w /path_to_dictionary -x txt,bak,php -t 50 -r --noerror -f
+gobuster dir -u http://ip -w /usr/share/wordlists/dirbuster/directory-listing-2.3-medium.txt -x txt,bak,php -t 50 -r --noerror -f
 dirsearch.py -u http://ip -w /path_to_dictionary -e txt,bak,php -t 50 -r -R 1 -x 400,401
 python3 -m http.server 9000
 
 #VHOST
-gobuster dir -u http:xxx.ru -w /usr/share/wordlists/dirbuster/directory-listing-2.3-medium.txt
+gobuster vhost -u http:xxx.ru -w /usr/share/seclists/Discovery/DNS/subdomains-tom1million-110000.txt
 
 ----------------------------------------------
 # nikto
